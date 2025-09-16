@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ad Reviewer — тест рекламы</title>
+  <title>Ad Reviewer — тест реклами</title>
   <meta name="description" content="Простой сайт для просмотра рекламных роликов по очереди, с оценкой Хорошо/Плохо и таймером.">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,7 +12,7 @@
     <div class="container head">
       <div class="brand">
         <img class="logo" src="logo.svg" alt="logo">
-        <span>Ad Reviewer</span>
+        <span>Bureau Labs</span>
       </div>
       <div class="controls">
         <button id="btnStart" class="btn">Старт</button>
@@ -20,63 +20,58 @@
       </div>
     </div>
   </header>
-
   <main class="container">
     <section class="topbar">
       <div class="upload">
-        <label class="file-btn">
-          <input id="fileInput" type="file" accept="video/*" multiple hidden>
-          + Добавить видео (файлы)
-        </label>
-        <button id="btnAddUrls" class="btn btn-ghost">Добавить по ссылкам</button>
-        <button id="btnClear" class="btn btn-ghost">Очистить очередь</button>
+        <button id="btnAddUrls" class="btn btn-ghost">Додати за посиланням</button>
+        <button id="btnClear" class="btn btn-ghost">Почистити чергу</button>
       </div>
       <div class="queue">
-        <span>Очередь: <strong id="qCount">0</strong></span>
+        <span>В черзі: <strong id="qCount">0</strong></span>
         <progress id="qProgress" max="100" value="0"></progress> 
       </div>
     </section>
 
     <section class="player-area">
-      <button id="btnBad" class="vote vote-left" title="Плохо (X)">✖</button>
+      <button id="btnBad" class="vote vote-left" title="Погано (X)">✖</button>
 
       <div class="player-card">
         <video id="player" controls playsinline></video>
         <div class="timeline"><div id="playedBar"></div></div>
       </div>
 
-      <button id="btnGood" class="vote vote-right" title="Хорошо (✓)">✓</button>
+      <button id="btnGood" class="vote vote-right" title="Добре (✓)">✓</button>
     </section>
 
     <section class="review">
-      <h3>Мини‑таблица рецензии</h3>
+      <h3>Міні-таблиця рецензій</h3>
       <table class="table" id="reviewTable">
         <thead>
-          <tr><th>Критерий</th><th>Оценка</th><th>Комментарий</th></tr>
+          <tr><th>Критерії</th><th>Оцінка</th><th>Коментарій</th></tr>
         </thead>
         <tbody>
-          <tr><td>Понятный оффер</td><td>
+          <tr><td>Зрозумілий оффер</td><td>
             <select>
               <option value="">—</option>
-              <option>Да</option><option>Скорее да</option><option>Скорее нет</option><option>Нет</option>
+              <option>Так</option><option>Скоріше так</option><option>Скоріше ні</option><option>Ні</option>
             </select>
           </td><td contenteditable="true"></td></tr>
-          <tr><td>Первые 3 секунды цепляют</td><td>
+          <tr><td>Перші 3 секунди чіпляють</td><td>
             <select>
               <option value="">—</option>
-              <option>Да</option><option>Скорее да</option><option>Скорее нет</option><option>Нет</option>
+              <option>Так</option><option>Скоріше так</option><option>Скоріше ні</option><option>Ні</option>
             </select>
           </td><td contenteditable="true"></td></tr>
-          <tr><td>Креатив без ошибок</td><td>
+          <tr><td>Якість звуку</td><td>
             <select>
               <option value="">—</option>
-              <option>Да</option><option>Мелкие</option><option>Есть ошибки</option>
+              <option>Дуже добре</option><option>Добре</option><option>Погано</option><option>Дуже погано</option>
             </select>
           </td><td contenteditable="true"></td></tr>
         </tbody>
       </table>
       <div class="review-actions">
-        <button id="btnSaveCsv" class="btn btn-ghost">Скачать отчёт (CSV)</button>
+        <button id="btnSaveCsv" class="btn btn-ghost">Завантажити звіт (CSV)</button>
       </div>
     </section>
   </main>
@@ -87,17 +82,17 @@
       <span id="timer">00:00</span>
       <button id="btnReset" class="btn btn-ghost small-btn">Сброс</button>
     </div>
-    <div class="hint small">Подсказка: ставь оценку ✓/✖ — видео автоматически переключится дальше.</div>
+    <div class="hint small">Підказка: став оцінку ✓/✖ — відео автоматично переключиться далі.</div>
   </footer>
 
   <dialog id="urlDialog">
     <form method="dialog" class="url-form">
-      <h3>Ссылки на видео (одна в строке)</h3>
+      <h3>Посилання на відео (одна в рядку)</h3>
       <textarea id="urlText" rows="8" placeholder="https://.../video1.mp4
 https://.../video2.mp4"></textarea>
       <div class="row end">
-        <button class="btn btn-ghost" value="cancel">Отмена</button>
-        <button id="urlOk" class="btn" value="ok">Добавить</button>
+        <button class="btn btn-ghost" value="cancel">Скасування</button>
+        <button id="urlOk" class="btn" value="ok">Додати</button>
       </div>
     </form>
   </dialog>
